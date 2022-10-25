@@ -1,0 +1,82 @@
+
+
+<div class="container">
+    <div class="row mt-5">
+
+        <div class="col-md-4 mx-auto">
+            <div class="card-header text-center"><h4>Alta de Usuarios</h4></div>
+            
+            <!-- (ngSubmit)="onCreate()"  -->
+            <form  novalidate #f="ngForm" >
+                <div class="mb-3">
+                    <!-- <label for="exampleInputEmail1" class="form-label">Alta de Usuarios</label> -->
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese Nombre de Usuario"
+                    [(ngModel)]="usuario.nombre" #nombre="ngModel" required>
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                        <div *ngIf="nombre.errors.required">
+                          Nombre es requerido
+                        </div>
+                      </div>
+                  </div>
+            
+                  <div class="mb-3">
+                    <!-- <label for="exampleInputEmail1" class="form-label">Nombre</label> -->
+                    <input type="number" class="form-control" id="edad" name="edad" placeholder="Ingrese Edad"
+                    [(ngModel)]="usuario.edad" #edad="ngModel" required>
+                    <div class="alert alert-danger" *ngIf="edad.invalid && (edad.dirty || edad.touched)">
+                        <div *ngIf="edad.errors.required">
+                          Edad requerida
+                        </div>
+                      </div>
+                  </div>
+            
+                <div class="mb-3">
+                  <!-- <label for="exampleInputEmail1" class="form-label">Email</label> -->
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese Email"
+                  [(ngModel)]="usuario.email" #email="ngModel" required email>
+                  <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <div *ngIf="email.errors.required">
+                      Email es requerio
+                    </div>
+                    <div *ngIf="email.errors.email">
+                      Debe tener un formato valido
+                    </div>
+                  </div>
+                </div>
+                 <!-- <div class="mb-3">
+                   <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña"
+                  [(ngModel)]="usuario.password">
+                </div> -->
+                <button  class="btn btn-primary float-right" (click)="onUpDate()" [disabled]="!f.valid">Guardar</button>
+              </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="container">
+    <div class="row mt-5">
+
+        <div class="col-md-4 mx-auto">
+
+            <div class="card">
+                <div class="card-header text-center">Editar</div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Nombre:</b>usuario.nombre</li>
+                        <li class="list-group-item"><b>Edad:</b>Jose Alberto</li>
+                        <li class="list-group-item"><b>Email:</b>Jose Alberto</li>
+                        <li class="list-group-item"><b>Contraseña:</b>Jose Alberto</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-outline-primary w-100" routerLink="/">Back
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

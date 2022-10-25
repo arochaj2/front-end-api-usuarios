@@ -1,0 +1,62 @@
+<div class="card border-secondary mb-3 mx-auto">
+  <div class="card-header">Usuarios</div>
+  <div class="card-body text-secondary">
+    <h5 class="card-title">Listado de usuarios</h5>
+    <div *ngIf="usuarios?.length==0" class="alert alert-info">
+      No hay Registros en la Base de datos
+    </div>
+
+    <table class="table table-bodered table-striped" *ngIf="usuarios?.length>0">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Edad</th>
+          <!-- <th>Password</th> -->
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{usuario.id}}</td>
+          <td>{{usuario.nombre}}</td>
+          <td>{{usuario.email}}</td>
+          <td>{{usuario.edad}}</td>
+          <!-- <td>{{usuario.password}}</td> -->
+          <td><button class="btn btn-outline-warning" routerLink="/editar/{{usuario.id}}"> Editar</button></td>
+          <td><button class="btn btn-outline-danger" (click)="eliminar(usuario)">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+
+
+
+<!-- <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Email</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Password</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.nombre}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.edad}}</td>
+        <td>{{usuario.password}}</td>
+        <td><button class="btn btn-outline-warning" routerLink="/editar/{{usuario.id}}"> Editar</button></td>
+        <td><button class="btn btn-outline-danger" (click)="eliminar(usuario)">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table> -->
